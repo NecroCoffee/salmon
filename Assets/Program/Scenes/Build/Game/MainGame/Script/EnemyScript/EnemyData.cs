@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class EnemyData : MonoBehaviour
 {
-    
-    enum EnemyShotType
-    {
-        NONE,
-        AIM,
-    }
 
     [System.Serializable]
-    struct Enemy
+    enum EnemyId
     {
-        public string EnemyName;
+        NONE = 0,
+        ENEMY1 = 1,
     }
+
+    
+    
+
+    
 }
