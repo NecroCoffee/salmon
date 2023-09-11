@@ -136,7 +136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6844566584229816586, guid: a672a8266b8c92b4c8e839de3caa7bd5, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6844566584229816586, guid: a672a8266b8c92b4c8e839de3caa7bd5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -379,6 +379,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1235859452 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 135909077065597792, guid: 1a1d2e0a4c4756d46a622d1af4376670, type: 3}
+  m_PrefabInstance: {fileID: 135909076835495929}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1440212227
 GameObject:
   m_ObjectHideFlags: 0
@@ -507,6 +512,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1624772931 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8403989894726895140, guid: 1a1d2e0a4c4756d46a622d1af4376670, type: 3}
+  m_PrefabInstance: {fileID: 135909076835495929}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &1624772932 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 4206544153208277182, guid: 1a1d2e0a4c4756d46a622d1af4376670, type: 3}
+  m_PrefabInstance: {fileID: 135909076835495929}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1654344763
 GameObject:
   m_ObjectHideFlags: 0
@@ -760,7 +775,7 @@ Transform:
   - {fileID: 1654344764}
   - {fileID: 1766363809}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &135909076835495929
 PrefabInstance:
@@ -770,6 +785,22 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 850979994, guid: 1a1d2e0a4c4756d46a622d1af4376670, type: 3}
+      propertyPath: EnemyTransform
+      value: 
+      objectReference: {fileID: 1235859452}
+    - target: {fileID: 850979994, guid: 1a1d2e0a4c4756d46a622d1af4376670, type: 3}
+      propertyPath: enemyFrenzyFlag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 850979994, guid: 1a1d2e0a4c4756d46a622d1af4376670, type: 3}
+      propertyPath: EnemyChildrenRig2D
+      value: 
+      objectReference: {fileID: 1624772932}
+    - target: {fileID: 850979994, guid: 1a1d2e0a4c4756d46a622d1af4376670, type: 3}
+      propertyPath: EnemyChildrenTransform
+      value: 
+      objectReference: {fileID: 1624772931}
+    - target: {fileID: 850979994, guid: 1a1d2e0a4c4756d46a622d1af4376670, type: 3}
       propertyPath: defaultEnemyPositionObject
       value: 
       objectReference: {fileID: 1516374076}
@@ -777,6 +808,10 @@ PrefabInstance:
       propertyPath: defaultEnemySpawnPositionObject
       value: 
       objectReference: {fileID: 230847124}
+    - target: {fileID: 850979994, guid: 1a1d2e0a4c4756d46a622d1af4376670, type: 3}
+      propertyPath: EnemyBulletPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 5763547102223768893, guid: e401491b84bc75c42bf70b36b3eedab0, type: 3}
     - target: {fileID: 135909077065597792, guid: 1a1d2e0a4c4756d46a622d1af4376670, type: 3}
       propertyPath: m_RootOrder
       value: 5

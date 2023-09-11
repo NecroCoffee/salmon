@@ -8,10 +8,17 @@ using UnityEngine;
 public class Enemy1 : MonoBehaviour
 {
 
+    [SerializeField]
+    private GameObject EnemyObject;//動きをさせるオブジェクトを入れる    
 
     [SerializeField]
-    private GameObject EnemyObject;//動きをさせるオブジェクトを入れる
+    private Transform EnemyChildrenTransform;//Enemyオブジェクトの子オブジェクトのTransformコンポーネントを入れる
 
+    [SerializeField]
+    private Rigidbody2D EnemyChildrenRig2D;//Enemyオブジェクトの子のRig2Dを入れる
+
+    [SerializeField]
+    private GameObject[] EnemyBulletPrefabs = new GameObject[4];//敵用弾プレハブ格納用配列(仮で上限4)
 
     //各種デフォルト数値
     
@@ -30,6 +37,8 @@ public class Enemy1 : MonoBehaviour
     [SerializeField]
     private Vector3 defaultEnemyPosition;//初期位置(vector3)
 
+    //-----------------------------------
+
 
     //デフォルトから取り出した数値を格納する変数
     private float enemyMoveSpeed;
@@ -45,8 +54,15 @@ public class Enemy1 : MonoBehaviour
     [SerializeField]
     private int enemyState;//現在のEnemyステート値
 
+
+    [SerializeField]
+    private bool enemyDeathFlag = false;//生存判定(Trueで撃破)
+
     [SerializeField]
     private bool enemyFrenzyFlag = false;//発狂フラグ
+
+    [SerializeField]
+    private bool enemyTimeOver = false;//時間切れ判定
 
     [System.Serializable]
     private enum EnemyState//Enemyステート(enum)
@@ -70,28 +86,93 @@ public class Enemy1 : MonoBehaviour
     private EnemyState nowState = EnemyState.START;//現在のステート
     private EnemyState nextState = EnemyState.START;//次のステート
 
+    private void ChengeState(EnemyState stateName)//ステート変更用メソッド
+    {
+        nextState = stateName;
+    }
+
 
     //Enemy1移動用メソッド
 
 
-    private void EnemyMoveStart()//登場時
+    [SerializeField]
+    private float enemyMoveStartTime = 5f;//登場演出時間
+    private void EnemyMoveStart()//登場時移動
+    {
+        if(this.transform.position==defaultEnemyPosition)
+        {
+            nextState = EnemyState.ATTACK1;
+            return;
+        }
+    }
+
+    private void EnemyMoveNomal()//通常時移動
     {
 
     }
 
-    private void EnemyMoveNomal()//通常時
+    private void EnemyMoveFrenzy()//発狂時移動
     {
 
     }
 
-    private void EnemyMoveFrenzy()//発狂時
+    private void EnemyMoveTimeOver()//時間切れ移動
     {
 
     }
 
-    private void EnemyMoveTimeOver()//時間切れ
+    //--------------------------------------------
+
+    //Enemy1攻撃用メソッド
+
+    private void EnemyAttackNomal_1()//通常攻撃1
     {
 
+    }
+
+    private void EnemyAttackNomal_2()//通常攻撃2
+    {
+
+    }
+
+    private void EnemyAttackNomal_3()//通常攻撃3
+    {
+
+    }
+
+    private void EnemyAttackFrenzy_1()//発狂時攻撃1
+    {
+
+    }
+
+    private void EnemyAttackFrenzy_2()//発狂時攻撃2
+    {
+
+    }
+
+    private void EnemyAttackFrenzy_3()//発狂時攻撃3
+    {
+
+    }
+
+    private void EnemyAttackFrenzy_4()//発狂時攻撃4
+    {
+
+    }
+
+    private void EnemyAttackTimeOver()//時間切れ攻撃
+    {
+
+    }
+
+    //--------------------------------------------
+
+    //Enemyの移動と攻撃をまとめたメソッド
+
+    private void EnemyActionPatternNomal_1()
+    {
+        EnemyMoveNomal();
+        EnemyAttackNomal_1();
     }
 
     //--------------------------------------------
@@ -130,7 +211,32 @@ public class Enemy1 : MonoBehaviour
 
     private void Update()
     {
-        
+        switch (nowState)
+        {
+            case EnemyState.NONE:
+                //デバッグ用メソッドを入れる
+                break;
+            case EnemyState.START:
+                //スタート用メソッドを入れる
+                break;
+            case EnemyState.ATTACK1:
+                EnemyActionPatternNomal_1();
+                break;
+            case EnemyState.ATTACK2:
+                break;
+            case EnemyState.ATTACK3:
+                break;
+            case EnemyState.FRENZY1:
+                break;
+            case EnemyState.FRENZY2:
+                break;
+            case EnemyState.FRENZY3:
+                break;
+            case EnemyState.FRENZY4:
+                break;
+            case EnemyState.TIMEOVER:
+                break;
+        }
     }
 
 }
