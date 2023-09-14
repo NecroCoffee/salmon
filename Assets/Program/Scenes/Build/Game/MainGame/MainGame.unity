@@ -134,6 +134,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Salmon
       objectReference: {fileID: 0}
+    - target: {fileID: 6844566584229816583, guid: a672a8266b8c92b4c8e839de3caa7bd5, type: 3}
+      propertyPath: m_TagString
+      value: Salmon
+      objectReference: {fileID: 0}
     - target: {fileID: 6844566584229816586, guid: a672a8266b8c92b4c8e839de3caa7bd5, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -295,6 +299,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &306669407 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1577909038, guid: 1a1d2e0a4c4756d46a622d1af4376670, type: 3}
+  m_PrefabInstance: {fileID: 135909076835495929}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &306669409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 306669407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28932531f28b1ba4884bb9e051fc5111, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyState: 0
+  bitBody: {fileID: 306669407}
+  bitShooter: {fileID: 1929970979}
 --- !u!1 &727730386
 GameObject:
   m_ObjectHideFlags: 0
@@ -379,11 +403,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1177653280 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1078224041, guid: 1a1d2e0a4c4756d46a622d1af4376670, type: 3}
+  m_PrefabInstance: {fileID: 135909076835495929}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1235859452 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 135909077065597792, guid: 1a1d2e0a4c4756d46a622d1af4376670, type: 3}
   m_PrefabInstance: {fileID: 135909076835495929}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1330735023 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 170768245, guid: 1a1d2e0a4c4756d46a622d1af4376670, type: 3}
+  m_PrefabInstance: {fileID: 135909076835495929}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1330735025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1330735023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28932531f28b1ba4884bb9e051fc5111, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyState: 0
+  bitBody: {fileID: 1330735023}
+  bitShooter: {fileID: 1177653280}
 --- !u!1 &1440212227
 GameObject:
   m_ObjectHideFlags: 0
@@ -777,6 +826,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1929970979 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1397366720, guid: 1a1d2e0a4c4756d46a622d1af4376670, type: 3}
+  m_PrefabInstance: {fileID: 135909076835495929}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &135909076835495929
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -858,6 +912,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 135909077065597806, guid: 1a1d2e0a4c4756d46a622d1af4376670, type: 3}
       propertyPath: m_Name
+      value: Enemy1
+      objectReference: {fileID: 0}
+    - target: {fileID: 135909077065597806, guid: 1a1d2e0a4c4756d46a622d1af4376670, type: 3}
+      propertyPath: m_TagString
       value: Enemy1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

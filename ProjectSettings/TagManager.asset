@@ -8,6 +8,8 @@ TagManager:
   - EnemyDefaultPositionObject
   - EnemySpawnPositionObject
   - EnemyBullet
+  - Salmon
+  - Enemy1
   layers:
   - Default
   - TransparentFX
