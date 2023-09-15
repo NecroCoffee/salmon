@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 170768246}
   - component: {fileID: 170768247}
+  - component: {fileID: 1330735025}
   m_Layer: 0
   m_Name: TopBit
   m_TagString: Untagged
@@ -85,6 +86,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1330735025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 170768245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28932531f28b1ba4884bb9e051fc5111, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyState: 0
+  bitBody: {fileID: 170768245}
+  bitShooter: {fileID: 1078224041}
 --- !u!1 &1078224041
 GameObject:
   m_ObjectHideFlags: 0
@@ -263,6 +279,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1577909039}
   - component: {fileID: 1577909040}
+  - component: {fileID: 306669409}
   m_Layer: 0
   m_Name: BotBit
   m_TagString: Untagged
@@ -338,6 +355,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &306669409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1577909038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28932531f28b1ba4884bb9e051fc5111, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyState: 0
+  bitBody: {fileID: 1577909038}
+  bitShooter: {fileID: 1397366720}
 --- !u!1 &135909077065597806
 GameObject:
   m_ObjectHideFlags: 0
@@ -350,7 +382,7 @@ GameObject:
   - component: {fileID: 850979994}
   m_Layer: 0
   m_Name: Enemy1
-  m_TagString: Untagged
+  m_TagString: Enemy1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -384,6 +416,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyObject: {fileID: 135909077065597806}
+  EnemyChildrenTransform: {fileID: 8403989894726895140}
+  EnemyChildrenRig2D: {fileID: 4206544153208277182}
+  EnemyBulletPrefabs:
+  - {fileID: 5763547102223768893, guid: e401491b84bc75c42bf70b36b3eedab0, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   defaultEnemyMoveSpeed: 1
   defaultEnemySpawnPositionObject: {fileID: 0}
   defaultEnemySpawnPosition: {x: 0, y: 0, z: 0}
@@ -391,7 +430,10 @@ MonoBehaviour:
   defaultEnemyPosition: {x: 0, y: 0, z: 0}
   defaultEnemyMoveState: 0
   enemyState: 0
+  enemyDeathFlag: 0
   enemyFrenzyFlag: 0
+  enemyTimeOver: 0
+  enemyMoveStartTime: 5
 --- !u!1 &3712541440344534444
 GameObject:
   m_ObjectHideFlags: 0

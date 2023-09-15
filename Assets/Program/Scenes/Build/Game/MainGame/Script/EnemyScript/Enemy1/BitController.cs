@@ -23,13 +23,6 @@ public class BitController : MonoBehaviour
 
     private void LookAtSalmon()
     {
-        
-
-        
-
-
-        
-
         toDirection = (targetPosition.transform.position - bitBody.transform.position).normalized;//å¸Ç´èoÇ∑
         bitBody.transform.rotation = Quaternion.FromToRotation(Vector3.up, toDirection);//QuaternionÇ≈å¸Ç≠
     }
@@ -42,6 +35,6 @@ public class BitController : MonoBehaviour
 
     private void Update()
     {
-        
+        LookAtSalmon();
     }
 }
