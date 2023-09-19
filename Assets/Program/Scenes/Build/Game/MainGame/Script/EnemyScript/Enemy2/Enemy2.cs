@@ -2,11 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy2 : MonoBehaviour
+public class Enemy2 : EnemyData
 {
+    [SerializeField] private GameObject salmon;
+
+    private Vector3 salmonPosition;
+
+
     [SerializeField] private GameObject enemy2Body;//enemy2の本体オブジェクト
 
-    [SerializeField] private GameObject enemy2Bullet;//敵弾のプレハブ
+    [SerializeField] List<GameObject> enemy2Bullet = new List<GameObject>();//敵弾のプレハブ
 
     [SerializeField] private GameObject enemy2Shooter;//敵弾発射箇所
 
@@ -18,16 +23,13 @@ public class Enemy2 : MonoBehaviour
 
     [SerializeField] private float moveRange = 3;
 
-    private void Enemy2Move_1()
-    {
-        enemy2Body.gameObject.transform.position = new Vector3(currentPos.x, currentPos.y + Mathf.Sin(Time.deltaTime) * moveRange, currentPos.z);
-    }
+    //private void Enemy2Move_1()
+    //{
+    //    enemy2Body.gameObject.transform.position = new Vector3(currentPos.x, currentPos.y + Mathf.Sin(Time.time) * moveRange, currentPos.z);
+    //}
 
     //enemy2攻撃メソッド
-    private void Enemy2Attack_1()
-    {
-
-    }
+    
 
     private void Awake()
     {
@@ -37,6 +39,7 @@ public class Enemy2 : MonoBehaviour
 
     private void Update()
     {
-        Enemy2Move_1();
+        //Enemy2Move_1();
+        EnemyMove01(enemy2Body,currentPos,moveRange);
     }
 }

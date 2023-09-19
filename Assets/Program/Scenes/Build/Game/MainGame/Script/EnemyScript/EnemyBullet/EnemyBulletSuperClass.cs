@@ -2,18 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyData : MonoBehaviour
+public class EnemyBulletSuperClass : MonoBehaviour
 {
-    /// <summary>
-    /// プレイヤーオブジェクト検索メソッド
-    /// </summary>
-    /// <returns>GameObject</returns>
+
+
+    protected float angle;//角度
+    protected float speed;//速度
+    protected Vector3 verocity;//移動量
+
+    protected GameObject salmon;//プレイヤーオブジェクト
+    protected Vector3 salmonPosition;//プレイヤーPosition
+
+    
+
     protected GameObject SearchPlayerObject()//プレイヤーオブジェクト検索メソッド
     {
         GameObject salmon = GameObject.FindWithTag("Salmon");
         return salmon;
     }
-
+    
     /// <summary>
     /// 敵弾と自機の角度を取得(Deg)
     /// </summary>
@@ -29,26 +36,11 @@ public class EnemyData : MonoBehaviour
         return Mathf.Atan2(dy, dx) * Mathf.Rad2Deg;
     }
 
-    //----------------------------------------------
-
-    //移動用メソッド
-
-    /// <summary>
-    /// 上下移動
-    /// </summary>
-    /// <param name="body"></param>
-    /// <param name="currentPos"></param>
-    /// <param name="moveRange"></param>
-    protected void EnemyMove01(GameObject body,Vector3 currentPos,float moveRange)
-    {
-        body.gameObject.transform.position =new Vector3(currentPos.x, currentPos.y + Mathf.Sin(Time.time) * moveRange, currentPos.z);
+    protected void ShootAimSalmon()//自機狙い弾
+    {        
+        
     }
 
-    //攻撃用メソッド
-    protected void EnemyAttack()
-    {
-
-    }
-
+    
 
 }
