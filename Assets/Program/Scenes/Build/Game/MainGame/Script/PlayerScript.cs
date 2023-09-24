@@ -37,6 +37,25 @@ public class PlayerScript : MonoBehaviour
     [SerializeField]
     private float pushAngle;//鮭を飛ばす方向
 
+    //右クリック用チャージ変数
+
+    [SerializeField]
+    private bool isAssaultMode = false;//チャージ攻撃をしているかどうか
+
+    [SerializeField]
+    private bool isAssaultCharged = false;//チャージ攻撃中かどうか
+
+    [SerializeField]
+    private float assaultForce = 0f;//チャージ量
+
+    [SerializeField]
+    private float assaultVelocity = 0f;//フレームあたりの加速度
+
+    [SerializeField]
+    private float assaultForceMax = 10f;//チャージ量上限
+
+    [SerializeField]
+    private const float assaultChargeTimeMax = 3f;//最大チャージ所要秒数
 
     //vector型変数
     private Vector3 chilldrenObjectPos;//子オブジェクト位置
@@ -149,8 +168,33 @@ public class PlayerScript : MonoBehaviour
 
     }
 
+    
+    //右クリック突撃チャージ
+    private void SalmonAssaultCharge()
+    {        
+        isAssaultMode = true;
+        rig.velocity = Vector3.zero;
+        if (assaultForce <= assaultForceMax)
+        {
+            assaultForce += assaultForce / (60 * assaultChargeTimeMax);
+        }
+        
+    }
 
+    //右クリック突撃
+    private void SalmonAssault()
+    {
+        
+        if (assaultForce <= 0f)
+        {
+            assaultForce = 0f;
+            isAssaultMode = false;
+            isAssaultCharged = false;
+        }
+        
+    }
 
+    //
     private void Awake()
     {
         rig = this.gameObject.GetComponent<Rigidbody2D>();
@@ -169,10 +213,14 @@ public class PlayerScript : MonoBehaviour
     {
         chilldrenObjectPos = childrenObject.transform.position;
 
-        lookAtMouse();
-        rotateChildrenObject();
+        if (isAssaultMode == false && isAssaultCharged == false)
+        {
+            lookAtMouse();
+            rotateChildrenObject();
+        }
+        
 
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && isAssaultMode==false)
         {
             PushForce();
 
@@ -180,8 +228,18 @@ public class PlayerScript : MonoBehaviour
             {
                 GeneratePrefab();//イクラ生成
             }
+
         }
 
+        if (Input.GetMouseButtonDown(1))
+        {
+            SalmonAssaultCharge();
+        }
+
+        if (Input.GetMouseButtonUp(1) && assaultForce >= 0f)
+        {
+            
+        }
 
     }
 }

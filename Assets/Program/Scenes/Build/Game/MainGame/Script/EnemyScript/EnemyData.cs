@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class EnemyData : MonoBehaviour
 {
+    protected struct SalmonData
+    {
+
+    }
+
     /// <summary>
     /// プレイヤーオブジェクト検索メソッド
     /// </summary>
@@ -45,10 +50,40 @@ public class EnemyData : MonoBehaviour
     }
 
     //攻撃用メソッド
-    protected void EnemyAttack()
-    {
 
+    /// <summary>
+    /// 自機狙い
+    /// </summary>
+    /// <param name="bullet"></param>
+    protected void EnemyAttackAim(GameObject bullet,GameObject enemyShooter,GameObject target,float bulletSpeed)
+    {
+        Vector3 enemyShooterPos = enemyShooter.gameObject.transform.position;
+        GameObject bulletObject = Instantiate(bullet) as GameObject;
+        bulletObject.transform.position = enemyShooterPos;
+        Vector3 shootVector = (target.transform.position - enemyShooterPos).normalized;
+        bulletObject.GetComponent<Rigidbody2D>().velocity = shootVector * bulletSpeed;
     }
 
+    /// <summary>
+    /// 改修予定 Nway弾
+    /// </summary>
+    /// <param name="bullet"></param>
+    /// <param name="enemyShooter"></param>
+    /// <param name="direction"></param>
+    /// <param name="wayNumber"></param>
+    /// <param name="width"></param>
+    /// <param name="bulletSpeed"></param>
+    protected void EnemyAttackNWay(GameObject bullet,GameObject enemyShooter,float direction,int wayNumber,float width,float bulletSpeed)
+    {
+        Vector3 enemyShooterPos = enemyShooter.gameObject.transform.position;
+
+        for (int i = 0; i < wayNumber; i++)
+        {
+            GameObject bulletObject = Instantiate(bullet) as GameObject;
+            bulletObject.transform.position = enemyShooterPos;
+            bulletObject.transform.rotation = Quaternion.Euler(0, 0, direction + (width * wayNumber));
+            bulletObject.GetComponent<Rigidbody2D>().velocity = (new Vector3(0, 0, direction + (width * wayNumber)).normalized) * bulletSpeed;
+        }
+    }
 
 }

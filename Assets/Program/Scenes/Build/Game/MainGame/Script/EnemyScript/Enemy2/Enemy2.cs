@@ -15,8 +15,17 @@ public class Enemy2 : EnemyData
 
     [SerializeField] private GameObject enemy2Shooter;//敵弾発射箇所
 
+    [SerializeField] private float bulletSpeed = 5f;
+
     private Vector3 currentPos;
 
+    //------------------------
+
+    //フレームカウンター
+
+    [SerializeField]private float currentFrame = 0f;
+    [SerializeField]private float intervalFrame = 30f;
+    
     //------------------------
 
     //enemy2移動メソッド
@@ -33,13 +42,28 @@ public class Enemy2 : EnemyData
 
     private void Awake()
     {
+        salmon = SearchPlayerObject();
         currentPos = enemy2Body.gameObject.transform.position;
     }
 
 
-    private void Update()
+    private void FixedUpdate()
     {
-        //Enemy2Move_1();
+        
         EnemyMove01(enemy2Body,currentPos,moveRange);
+
+
+
+        //if (currentFrame > intervalFrame)
+        //{
+        //    currentFrame = 0f;
+        //    EnemyAttackAim(enemy2Bullet[0], enemy2Shooter, salmon, bulletSpeed);
+            //EnemyAttackNWay(enemy2Bullet[0], enemy2Shooter, 45, 5, 15, bulletSpeed);
+        //}
+        //else
+        //{
+        //    currentFrame++;
+        //
+        //EnemyAttackAim(enemy2Bullet[0], enemy2Shooter, salmon);
     }
 }
