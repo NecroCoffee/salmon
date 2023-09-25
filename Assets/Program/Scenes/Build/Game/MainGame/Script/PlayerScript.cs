@@ -46,7 +46,12 @@ public class PlayerScript : MonoBehaviour
     private bool isAssaultCharged = false;//チャージ攻撃中かどうか
 
     [SerializeField]
+    private Vector3 salmonSaveposition=new Vector3();//Salmonチャージ攻撃用座標保存変数
+
+    [SerializeField]
     private float assaultForce = 0f;//チャージ量
+
+    
 
     [SerializeField]
     private float assaultVelocity = 0f;//フレームあたりの加速度
@@ -55,7 +60,10 @@ public class PlayerScript : MonoBehaviour
     private float assaultForceMax = 10f;//チャージ量上限
 
     [SerializeField]
-    private const float assaultChargeTimeMax = 3f;//最大チャージ所要秒数
+    private float assaultChargeFrameMax = 180f;//最大チャージ所要フレーム数
+
+    [SerializeField]
+    private float assaultForceChargeFramePer = 0f;//位置フレームあたりのチャージ加算量
 
     //vector型変数
     private Vector3 chilldrenObjectPos;//子オブジェクト位置
@@ -168,15 +176,36 @@ public class PlayerScript : MonoBehaviour
 
     }
 
-    
+    //右クリック突撃用座標保存
+    private void SalmonSavePosition()
+    {
+        salmonSaveposition = this.gameObject.transform.position;
+    }
+
     //右クリック突撃チャージ
     private void SalmonAssaultCharge()
-    {        
+    {
+        rig.gravityScale = 0f;
+        rig.velocity = Vector2.zero;
+
+        
+
+        if (assaultForceChargeFramePer <= 0f)
+        {
+            assaultForceChargeFramePer = assaultForceMax / assaultChargeFrameMax;
+        }
+
         isAssaultMode = true;
-        rig.velocity = Vector3.zero;
+        
+
         if (assaultForce <= assaultForceMax)
         {
-            assaultForce += assaultForce / (60 * assaultChargeTimeMax);
+            assaultForce += assaultForceChargeFramePer;
+
+            if (assaultForce >= assaultForceMax)
+            {
+                assaultForce = assaultForceMax;
+            }
         }
         
     }
@@ -184,12 +213,21 @@ public class PlayerScript : MonoBehaviour
     //右クリック突撃
     private void SalmonAssault()
     {
-        
+        rig.gravityScale = 1f;
+        rig.velocity = new Vector2(rig.velocity.x + (assaultForceChargeFramePer * Mathf.Sign(this.transform.rotation.z)),
+                                   rig.velocity.y + (assaultForceChargeFramePer * Mathf.Sign(this.transform.rotation.z)));
+
+        assaultForce -= assaultForceChargeFramePer;
+
         if (assaultForce <= 0f)
         {
+            rig.gravityScale = 1f;
             assaultForce = 0f;
+            assaultForceChargeFramePer = 0f;
             isAssaultMode = false;
             isAssaultCharged = false;
+
+            return;
         }
         
     }
@@ -231,15 +269,15 @@ public class PlayerScript : MonoBehaviour
 
         }
 
-        if (Input.GetMouseButtonDown(1))
-        {
-            SalmonAssaultCharge();
-        }
+        //if (Input.GetMouseButtonDown(1))
+        //{
+        //    SalmonAssaultCharge();
+        //}
 
-        if (Input.GetMouseButtonUp(1) && assaultForce >= 0f)
-        {
-            
-        }
+        //if (Input.GetMouseButtonUp(1))
+        //{
+        //    SalmonAssault();
+        //}
 
     }
 }
