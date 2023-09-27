@@ -23,9 +23,9 @@ public class Enemy2 : EnemyData
 
     //フレームカウンター
 
-    [SerializeField]private float currentFrame = 0f;
-    [SerializeField]private float intervalFrame = 30f;
-    
+    [SerializeField] private float currentFrame = 0f;
+    [SerializeField] private float intervalFrame = 30f;
+
     //------------------------
 
     //enemy2移動メソッド
@@ -38,7 +38,7 @@ public class Enemy2 : EnemyData
     //}
 
     //enemy2攻撃メソッド
-    
+
 
     private void Awake()
     {
@@ -49,21 +49,24 @@ public class Enemy2 : EnemyData
 
     private void FixedUpdate()
     {
-        
-        EnemyMove01(enemy2Body,currentPos,moveRange);
+
+        EnemyMove01(enemy2Body, currentPos, moveRange);
 
 
 
-        //if (currentFrame > intervalFrame)
-        //{
-        //    currentFrame = 0f;
-        //    EnemyAttackAim(enemy2Bullet[0], enemy2Shooter, salmon, bulletSpeed);
+        if (currentFrame > intervalFrame)
+        {
+            currentFrame = 0f;
+            EnemyAttackAim(enemy2Bullet[0], enemy2Shooter, salmon, bulletSpeed);
+
+            EnemyAttackStraight(enemy2Bullet[1], Vector2.left, enemy2Shooter);
             //EnemyAttackNWay(enemy2Bullet[0], enemy2Shooter, 45, 5, 15, bulletSpeed);
-        //}
-        //else
-        //{
-        //    currentFrame++;
-        //
-        //EnemyAttackAim(enemy2Bullet[0], enemy2Shooter, salmon);
+        }
+        else
+        {
+            currentFrame++;
+
+            
+        }
     }
 }

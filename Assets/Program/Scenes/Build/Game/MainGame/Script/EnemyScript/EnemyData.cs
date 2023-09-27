@@ -75,15 +75,22 @@ public class EnemyData : MonoBehaviour
     /// <param name="bulletSpeed"></param>
     protected void EnemyAttackNWay(GameObject bullet,GameObject enemyShooter,float direction,int wayNumber,float width,float bulletSpeed)
     {
-        Vector3 enemyShooterPos = enemyShooter.gameObject.transform.position;
+        
+    }
 
-        for (int i = 0; i < wayNumber; i++)
-        {
-            GameObject bulletObject = Instantiate(bullet) as GameObject;
-            bulletObject.transform.position = enemyShooterPos;
-            bulletObject.transform.rotation = Quaternion.Euler(0, 0, direction + (width * wayNumber));
-            bulletObject.GetComponent<Rigidbody2D>().velocity = (new Vector3(0, 0, direction + (width * wayNumber)).normalized) * bulletSpeed;
-        }
+
+    protected void EnemyAttackStraight(GameObject bullet,Vector3 direction,GameObject bulletShooter)
+    {
+        GameObject bulletObject = Instantiate(bullet) as GameObject;
+        bulletObject.transform.position = bulletShooter.transform.position;
+        bulletObject.transform.Rotate(direction);
+        
+        
+
+        //Vector3 enemyShooterPos = enemyShooter.gameObject.transform.position;
+        //bulletObject.transform.position = enemyShooterPos;
+        //Vector3 shootVector = Vector3.forward.normalized;
+        //bulletObject.GetComponent<Rigidbody2D>().velocity = shootVector * bulletSpeed;
     }
 
 }

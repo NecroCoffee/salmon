@@ -41,6 +41,13 @@ public class EnemyBulletSuperClass : MonoBehaviour
         
     }
 
-    
+    /// <summary>
+    /// //生成時のローカル角度のleftに向かって前進
+    /// </summary>
+    /// <param name="speed"></param>
+    protected void ShootStraight(float speed)
+    {
+        this.transform.Translate(Vector2.left * speed);
+    }
 
 }

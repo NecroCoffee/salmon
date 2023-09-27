@@ -49,6 +49,7 @@ MonoBehaviour:
   enemy2Body: {fileID: 4940335320677142452}
   enemy2Bullet:
   - {fileID: 5763547102223768893, guid: e401491b84bc75c42bf70b36b3eedab0, type: 3}
+  - {fileID: 5763547102223768893, guid: 9d845b68a2031ce43851fb3f8d271d49, type: 3}
   enemy2Shooter: {fileID: 7884682092665496253}
   bulletSpeed: 5
   currentFrame: 0
