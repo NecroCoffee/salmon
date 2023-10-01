@@ -26,6 +26,23 @@ public class Egg : MonoBehaviour
 
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        GameObject collisionGameObject = collision.gameObject;
+
+        if (collisionGameObject.gameObject.CompareTag("EnemyBullet"))
+        {
+            Destroy(collisionGameObject);
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            return;
+        }
+    }
+
+    
+
     private void FixedUpdate()
     {
 

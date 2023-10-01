@@ -7,21 +7,19 @@ using UnityEngine;
 /// </summary>
 public class MainGameManager : MonoBehaviour
 {
-    //プレイヤー用変数
 
-    //プレイヤー体力
-    [SerializeField]
-    private float playerHelth = 100;
+    [SerializeField] public GameObject MGMcurrentEnemy;
 
-    //---
+    [SerializeField] public GameObject MGMnextEnemy;
 
-    //エネミー用変数
+    [SerializeField] private List<GameObject> EnemyList = new List<GameObject>();
 
+    
+    private void Awake()
+    {
+        
+    }
 
-
-    //---
-
-    //エネミー情報
     
 
 

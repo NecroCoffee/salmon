@@ -6,9 +6,9 @@ public class EnemyBulletSuperClass : MonoBehaviour
 {
 
 
-    protected float angle;//角度
-    protected float speed;//速度
-    protected Vector3 verocity;//移動量
+    protected float bulletAngle;//角度
+    protected float bulletSpeed;//速度
+    protected Vector3 bulletVerocity;//移動量
 
     protected GameObject salmon;//プレイヤーオブジェクト
     protected Vector3 salmonPosition;//プレイヤーPosition
@@ -21,6 +21,11 @@ public class EnemyBulletSuperClass : MonoBehaviour
         return salmon;
     }
     
+    protected void DeleteBullet()
+    {
+        Destroy(this.gameObject);
+    }
+
     /// <summary>
     /// 敵弾と自機の角度を取得(Deg)
     /// </summary>
@@ -45,9 +50,9 @@ public class EnemyBulletSuperClass : MonoBehaviour
     /// //生成時のローカル角度のleftに向かって前進
     /// </summary>
     /// <param name="speed"></param>
-    protected void ShootStraight(float speed)
+    protected void ShootStraight(Vector2 direction,float speed)
     {
-        this.transform.Translate(Vector2.left * speed);
+        this.transform.Translate(direction.normalized * speed);
     }
 
 }

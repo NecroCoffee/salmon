@@ -11,6 +11,8 @@ TagManager:
   - Salmon
   - Enemy1
   - Enemy2
+  - SalmonEgg
+  - PlayerBullet
   layers:
   - Default
   - TransparentFX

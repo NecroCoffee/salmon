@@ -16,6 +16,11 @@ public class Enemy2Bullet1 : EnemyBulletSuperClass
         bulletPos = this.gameObject.transform.position;
     }
 
+    private void OnBecameInvisible()
+    {
+        DeleteBullet();
+    }
+
     private void FixedUpdate()
     {
         bulletPos = this.gameObject.transform.position;

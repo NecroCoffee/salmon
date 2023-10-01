@@ -24,7 +24,7 @@ public class Enemy2 : EnemyData
     //フレームカウンター
 
     [SerializeField] private float currentFrame = 0f;
-    [SerializeField] private float intervalFrame = 30f;
+    [SerializeField] private float intervalFrame = 10f;
 
     //------------------------
 

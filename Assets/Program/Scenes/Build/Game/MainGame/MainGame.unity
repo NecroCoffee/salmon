@@ -289,6 +289,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 259975026}
+  - component: {fileID: 259975027}
   m_Layer: 0
   m_Name: MainGameManagaer
   m_TagString: Untagged
@@ -311,6 +312,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &259975027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 259975025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a2700f01bb82ca4cac66d948680a4ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MGMcurrentEnemy: {fileID: 0}
+  MGMnextEnemy: {fileID: 0}
+  EnemyList: []
 --- !u!1 &727730386
 GameObject:
   m_ObjectHideFlags: 0
@@ -836,6 +852,10 @@ PrefabInstance:
     - target: {fileID: 6192939244244313551, guid: 90f2e7240f2e8dd45a76776f41865b5f, type: 3}
       propertyPath: bulletSpeed
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6192939244244313551, guid: 90f2e7240f2e8dd45a76776f41865b5f, type: 3}
+      propertyPath: intervalFrame
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90f2e7240f2e8dd45a76776f41865b5f, type: 3}
