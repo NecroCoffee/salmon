@@ -4,24 +4,23 @@ using UnityEngine;
 
 public class PlayerBulletSuperClass : MonoBehaviour
 {
-    protected float bulletAngle;//角度
-    protected float bulletSpeed;//速度
+    
     protected Vector3 bulletVerocity;//移動量
 
     protected GameObject enemyObject;//敵オブジェクト
     protected Vector3 enemyPosition;//敵Position
 
-    MainGameManager MGMscript = new MainGameManager();
+    //MainGameManager MGMscript = new MainGameManager();
 
     protected GameObject SearchEnemyObject()//敵オブジェクト検索メソッド
     {
-        GameObject enemy = MGMscript.MGMcurrentEnemy;
+        GameObject enemy = GameObject.FindWithTag("Enemy");
         return enemy;
     }
 
-    protected float GetAimForEnemy()
+    protected float GetAimForEnemy(GameObject targetObject)
     {
-        GameObject gameObject = SearchEnemyObject();
+        GameObject gameObject = targetObject;
         Vector3 vector3 = new Vector3();
         vector3 = gameObject.gameObject.transform.position;
 

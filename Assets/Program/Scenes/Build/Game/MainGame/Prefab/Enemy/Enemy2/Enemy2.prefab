@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6192939244244313551}
   m_Layer: 0
   m_Name: Enemy2
-  m_TagString: Enemy2
+  m_TagString: EnemyParent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38509ed50b7bbb5469634b539ed1560c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Enemy2HP: 500
   salmon: {fileID: 0}
   enemy2Body: {fileID: 4940335320677142452}
   enemy2Bullet:
@@ -67,9 +68,10 @@ GameObject:
   - component: {fileID: 3912469481188929617}
   - component: {fileID: 8563998830183115484}
   - component: {fileID: 8563998830183115483}
+  - component: {fileID: 1244466909058084110}
   m_Layer: 0
   m_Name: Body
-  m_TagString: Untagged
+  m_TagString: Enemy2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -192,6 +194,20 @@ PolygonCollider2D:
       - {x: -0.5, y: -0.5}
       - {x: 0.5, y: -0.5}
       - {x: 0.5, y: 0.5}
+--- !u!114 &1244466909058084110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4940335320677142452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ece6ba9e70101494cb2c52d128a96b63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy2Object: {fileID: 3162170505204084287}
+  enemy2Script: {fileID: 6192939244244313551}
 --- !u!1 &7884682092665496253
 GameObject:
   m_ObjectHideFlags: 0

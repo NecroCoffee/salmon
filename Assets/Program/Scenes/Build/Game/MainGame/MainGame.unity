@@ -292,7 +292,7 @@ GameObject:
   - component: {fileID: 259975027}
   m_Layer: 0
   m_Name: MainGameManagaer
-  m_TagString: Untagged
+  m_TagString: MainGameManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -324,9 +324,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a2700f01bb82ca4cac66d948680a4ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MGMcurrentEnemy: {fileID: 0}
+  playerCounterBullets:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  defaultPlayerCounterBullet: {fileID: 5763547102223768893, guid: d52572c480e569e4a887a1cc17358f77, type: 3}
+  currentPlayerCounterBullet: {fileID: 0}
+  MGMcurrentEnemy: {fileID: 1899723004}
   MGMnextEnemy: {fileID: 0}
-  EnemyList: []
+  EnemyList:
+  - {fileID: 1899723004}
+  - {fileID: 1899723004}
 --- !u!1 &727730386
 GameObject:
   m_ObjectHideFlags: 0
@@ -794,6 +804,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1899723004 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3162170505204084287, guid: 90f2e7240f2e8dd45a76776f41865b5f, type: 3}
+  m_PrefabInstance: {fileID: 8563998830183115481}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8563998830183115481
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -848,6 +863,14 @@ PrefabInstance:
     - target: {fileID: 3162170505204084287, guid: 90f2e7240f2e8dd45a76776f41865b5f, type: 3}
       propertyPath: m_Name
       value: Enemy2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3162170505204084287, guid: 90f2e7240f2e8dd45a76776f41865b5f, type: 3}
+      propertyPath: m_TagString
+      value: EnemyParent
+      objectReference: {fileID: 0}
+    - target: {fileID: 4940335320677142452, guid: 90f2e7240f2e8dd45a76776f41865b5f, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 6192939244244313551, guid: 90f2e7240f2e8dd45a76776f41865b5f, type: 3}
       propertyPath: bulletSpeed

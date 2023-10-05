@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyData : MonoBehaviour
 {
-    protected struct SalmonData
+    protected struct EnemyStatus
     {
 
     }

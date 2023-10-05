@@ -160,7 +160,7 @@ public class PlayerScript : MonoBehaviour
         //Vector2 forceDirection;
 
         pushAngle = this.gameObject.transform.eulerAngles.z;//x=+1,y=+1‚É‚µ‚½‚¢‚Ì‚Å‚±‚±‚É[-135(‰Eã‚ğŒü‚¢‚Ä‚¢‚é)]‚ª“ü‚Á‚Ä‚¢‚é‚Æl‚¦‚é
-        Debug.Log(pushAngle);
+        //Debug.Log(pushAngle);
 
         float pushRad = pushAngle * Mathf.Deg2Rad;
 

@@ -9,10 +9,12 @@ TagManager:
   - EnemySpawnPositionObject
   - EnemyBullet
   - Salmon
-  - Enemy1
-  - Enemy2
+  - EnemyParent
+  - Enemy
   - SalmonEgg
   - PlayerBullet
+  - MainGameManager
+  - EnemyBody
   layers:
   - Default
   - TransparentFX

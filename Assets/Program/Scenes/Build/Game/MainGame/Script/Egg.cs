@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class Egg : MonoBehaviour
 {
+    [SerializeField] private GameObject MGM_Object;
+    [SerializeField] private MainGameManager MGM_Script;    
+
     [SerializeField]
     private float force = 1f;
     private Rigidbody2D rig;
 
-    private void EggMove()
+    private void Awake()
     {
-
-    }
-
-    private void Start()
-    {
-
+        //‚±‚Ì•Ó’¼‚µ‚½‚¢
+        MGM_Object = GameObject.FindWithTag("MainGameManager");
+        MGM_Script = MGM_Object.GetComponent<MainGameManager>();
     }
 
     private void OnEnable()
@@ -32,6 +32,12 @@ public class Egg : MonoBehaviour
 
         if (collisionGameObject.gameObject.CompareTag("EnemyBullet"))
         {
+            MGM_Script = MGM_Object.GetComponent<MainGameManager>();
+            
+            GameObject counterBullet = Instantiate(MGM_Script.currentPlayerCounterBullet) as GameObject;
+            counterBullet.transform.position = this.transform.position;
+            
+
             Destroy(collisionGameObject);
             Destroy(this.gameObject);
         }
@@ -43,10 +49,7 @@ public class Egg : MonoBehaviour
 
     
 
-    private void FixedUpdate()
-    {
-
-    }
+    
 
 
 }

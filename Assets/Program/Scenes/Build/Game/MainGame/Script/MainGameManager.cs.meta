@@ -3,7 +3,11 @@ guid: 6a2700f01bb82ca4cac66d948680a4ff
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - defaultPlayerCounterBullet: {fileID: 5763547102223768893, guid: d52572c480e569e4a887a1cc17358f77, type: 3}
+  - currentPlayerCounterBullet: {instanceID: 0}
+  - MGMcurrentEnemy: {instanceID: 0}
+  - MGMnextEnemy: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

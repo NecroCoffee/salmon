@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class Enemy2 : EnemyData
 {
+    //敵ステータス情報
+
+    [SerializeField] public int enemy2HP = 500;
+
+    //------------------------------------------
+
+
+
     [SerializeField] private GameObject salmon;
 
     private Vector3 salmonPosition;
@@ -45,6 +53,7 @@ public class Enemy2 : EnemyData
         salmon = SearchPlayerObject();
         currentPos = enemy2Body.gameObject.transform.position;
     }
+    
 
 
     private void FixedUpdate()

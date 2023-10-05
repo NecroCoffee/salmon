@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2772861464592249160}
   - component: {fileID: 7659322837685580432}
   - component: {fileID: -4470655818577321870}
+  - component: {fileID: 2145240851552587894}
   m_Layer: 0
   m_Name: SalmonCounterBullet
   m_TagString: PlayerBullet
@@ -123,3 +124,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &2145240851552587894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5763547102223768893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c688a615a156124d8afc885683976b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPos: {x: 0, y: 0, z: 0}
+  bulletSpeed: 10
+  bulletSpeedIncrease: 0.5
+  bulletDirection: 0
+  targetObject: {fileID: 0}
+  targetPos: {x: 0, y: 0, z: 0}
+  bulletHP: 3
