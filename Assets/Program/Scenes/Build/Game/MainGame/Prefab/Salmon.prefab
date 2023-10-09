@@ -268,7 +268,7 @@ GameObject:
   - component: {fileID: -2500608165483687703}
   m_Layer: 0
   m_Name: Salmon
-  m_TagString: Untagged
+  m_TagString: Salmon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -400,6 +400,14 @@ MonoBehaviour:
   childrenObjectLookTarget: {fileID: 6844566583446414193}
   pushForce: 5
   pushAngle: 0
+  isAssaultMode: 0
+  isAssaultCharged: 0
+  salmonSaveposition: {x: 0, y: 0, z: 0}
+  assaultForce: 0
+  assaultVelocity: 0
+  assaultForceMax: 10
+  assaultChargeFrameMax: 180
+  assaultForceChargeFramePer: 0
   forceDirection: {x: 0, y: 0}
   angle: 0
 --- !u!1 &6844566584422787175

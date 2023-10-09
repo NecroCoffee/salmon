@@ -45,16 +45,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38509ed50b7bbb5469634b539ed1560c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Enemy2HP: 500
+  enemy2HP: 500
   salmon: {fileID: 0}
   enemy2Body: {fileID: 4940335320677142452}
   enemy2Bullet:
   - {fileID: 5763547102223768893, guid: e401491b84bc75c42bf70b36b3eedab0, type: 3}
   - {fileID: 5763547102223768893, guid: 9d845b68a2031ce43851fb3f8d271d49, type: 3}
   enemy2Shooter: {fileID: 7884682092665496253}
-  bulletSpeed: 5
+  bulletSpeed: 15
   currentFrame: 0
-  intervalFrame: 30
+  intervalFrame: 5
   moveRange: 3
 --- !u!1 &4940335320677142452
 GameObject:
@@ -71,7 +71,7 @@ GameObject:
   - component: {fileID: 1244466909058084110}
   m_Layer: 0
   m_Name: Body
-  m_TagString: Enemy2
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
