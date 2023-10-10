@@ -70,6 +70,10 @@ public class Enemy2 : EnemyData
 
             EnemyAttackStraight(enemy2Bullet[1], Vector2.left, enemy2Shooter);
             //EnemyAttackNWay(enemy2Bullet[0], enemy2Shooter, 45, 5, 15, bulletSpeed);
+
+            //EnemyAttack2SidePingPong(enemy2Bullet[2], Vector3.left, enemy2Shooter, 3f);
+
+            
         }
         else
         {

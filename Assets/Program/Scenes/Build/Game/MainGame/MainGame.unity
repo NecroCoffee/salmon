@@ -136,7 +136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6844566584229816583, guid: a672a8266b8c92b4c8e839de3caa7bd5, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6844566584229816586, guid: a672a8266b8c92b4c8e839de3caa7bd5, type: 3}
       propertyPath: m_RootOrder
@@ -1042,7 +1042,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3162170505204084287, guid: 90f2e7240f2e8dd45a76776f41865b5f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6192939244244313551, guid: 90f2e7240f2e8dd45a76776f41865b5f, type: 3}
+      propertyPath: enemy2Bullet.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6192939244244313551, guid: 90f2e7240f2e8dd45a76776f41865b5f, type: 3}
+      propertyPath: enemy2Bullet.Array.data[2]
+      value: 
+      objectReference: {fileID: 5763547102223768893, guid: 65639ec94b4830e4985e5fbe119955cf, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90f2e7240f2e8dd45a76776f41865b5f, type: 3}

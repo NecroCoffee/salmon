@@ -85,12 +85,18 @@ public class EnemyData : MonoBehaviour
         bulletObject.transform.position = bulletShooter.transform.position;
         bulletObject.transform.Rotate(direction);
         
-        
+    }
 
-        //Vector3 enemyShooterPos = enemyShooter.gameObject.transform.position;
-        //bulletObject.transform.position = enemyShooterPos;
-        //Vector3 shootVector = Vector3.forward.normalized;
-        //bulletObject.GetComponent<Rigidbody2D>().velocity = shootVector * bulletSpeed;
+    protected void EnemyAttack2SidePingPong(GameObject bullet,Vector3 direction,GameObject bulletShooter,float diff)
+    {
+        GameObject bulletObject1 = Instantiate(bullet) as GameObject;
+        GameObject bulletObject2 = Instantiate(bullet) as GameObject;
+
+        bulletObject1.transform.position = new Vector3(bulletShooter.transform.position.x, bulletShooter.transform.position.y + diff, 0);
+        bulletObject2.transform.position = new Vector3(bulletShooter.transform.position.x, bulletShooter.transform.position.y - diff, 0);
+
+        bulletObject1.transform.Rotate(direction);
+        bulletObject2.transform.Rotate(direction);
     }
 
 }
