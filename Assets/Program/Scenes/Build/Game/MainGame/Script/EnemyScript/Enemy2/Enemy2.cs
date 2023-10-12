@@ -53,8 +53,11 @@ public class Enemy2 : EnemyData
         salmon = SearchPlayerObject();
         currentPos = enemy2Body.gameObject.transform.position;
     }
-    
 
+    private void Update()
+    {
+        
+    }
 
     private void FixedUpdate()
     {

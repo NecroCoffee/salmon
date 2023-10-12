@@ -23,7 +23,9 @@ public class PlayerScript : MonoBehaviour
     [SerializeField]
     private GameObject childrenObjectLookTarget;
 
-
+    //コンポーネント用変数
+    private GameObject MainGameManagerObject;
+    private MainGameManager mainGameManager;
     
 
     //値型変数
@@ -241,11 +243,10 @@ public class PlayerScript : MonoBehaviour
         //デバッグ用 rigのXYを固定
         DebugMoveStop();
 
+        
 
     }
-
-
-
+   
 
     private void FixedUpdate()
     {
@@ -268,17 +269,14 @@ public class PlayerScript : MonoBehaviour
             }
 
         }
-
-        //if (Input.GetMouseButtonDown(1))
-        //{
-        //    SalmonAssaultCharge();
-        //}
-
-        //if (Input.GetMouseButtonUp(1))
-        //{
-        //    SalmonAssault();
-        //}
-
     }
-    
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("EnemyBullet"))
+        {
+            mainGameManager.playerHP--;
+        }
+    }
+
 }

@@ -7,17 +7,15 @@ using UnityEngine;
 /// </summary>
 public class MainGameManager : MonoBehaviour
 {
-    //ゲームシステム基幹関係変数
+    //コンポーネント読み込み
+    private MainGameData mainGameData = new MainGameData();
+    
+    
 
     //プレイヤー操作可能判定
     bool playerCanControl = false;
-
-    //ゲームシステム用変数
-    public int playerLeftCount = 3;
-    public int score = 0;
-    public float gameLevel = 1;
-
-    //プレイヤー生成関係
+    
+    //プレイヤー関係の変数の宣言
 
     //プレイヤー生成位置
     [SerializeField] private GameObject playerPrefabGeneratePositionObject;
@@ -140,12 +138,15 @@ public class MainGameManager : MonoBehaviour
     //
 
     //player
+    
 
     [SerializeField] private GameObject[] playerCounterBullets = new GameObject[5];
 
     [SerializeField] private GameObject defaultPlayerCounterBullet;
 
     [SerializeField] public GameObject currentPlayerCounterBullet;
+
+    [SerializeField] public int playerHP = 50;
 
 
     //enemy
@@ -155,12 +156,44 @@ public class MainGameManager : MonoBehaviour
 
     [SerializeField] private GameObject[] EnemyList = new GameObject[5];
 
-    
+    /// <summary>
+    /// MainGameDataの構造体の中身の初期化
+    /// </summary>
+    private void MainGameDataStatusInitialize()
+    {
+        MainGameData.PlayerData.HP = playerHP;
+        
+    }
+
+    /// <summary>
+    /// MainGameDataの構造体の中身の更新
+    /// </summary>
+    private void MainGameDataStatusUpdate()
+    {
+        MainGameData.PlayerData.HP = playerHP;
+
+        
+
+    }
+
     private void Awake()
     {
         currentPlayerCounterBullet = defaultPlayerCounterBullet;
         MGMcurrentEnemy = EnemyList[0];
         MGMcurrentEnemy = EnemyList[1];
+
+        Instantiate(EnemyList[0], new Vector3(10, 0, 0), Quaternion.identity);
+
+        mainGameData = this.gameObject.GetComponent<MainGameData>();
+        MainGameDataStatusInitialize();
+        
+    }
+
+    
+
+    private void Update()
+    {
+        MainGameDataStatusUpdate();
     }
 
     private void FixedUpdate()

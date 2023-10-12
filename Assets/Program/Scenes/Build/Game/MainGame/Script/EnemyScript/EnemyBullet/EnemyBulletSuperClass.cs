@@ -55,6 +55,12 @@ public class EnemyBulletSuperClass : MonoBehaviour
         this.transform.Translate(direction.normalized * speed);
     }
 
+    /// <summary>
+    /// è„â∫íeópä÷êî(ñ¢äÆê¨)
+    /// </summary>
+    /// <param name="direction"></param>
+    /// <param name="speed"></param>
+    /// <param name="length"></param>
     protected void ShootPingPong(Vector2 direction,float speed,float length)
     {
         var pingpongLength = Mathf.PingPong(Time.fixedDeltaTime, length);

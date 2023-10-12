@@ -11,12 +11,7 @@ public class Egg : MonoBehaviour
     private float force = 1f;
     private Rigidbody2D rig;
 
-    private void Awake()
-    {
-        //‚±‚Ì•Ó’¼‚µ‚½‚¢
-        MGM_Object = GameObject.FindWithTag("MainGameManager");
-        MGM_Script = MGM_Object.GetComponent<MainGameManager>();
-    }
+    
 
     private void OnEnable()
     {

@@ -5,16 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - PlayerChildren
-  - EnemyDefaultPositionObject
-  - EnemySpawnPositionObject
-  - EnemyBullet
   - Salmon
-  - EnemyParent
-  - Enemy
-  - SalmonEgg
-  - PlayerBullet
-  - MainGameManager
-  - EnemyBody
+  - GameManager
+  - Building
   layers:
   - Default
   - TransparentFX
@@ -26,7 +19,7 @@ TagManager:
   - PlayerChildren
   - Booster
   - Egg
-  - 
+  - Buildings
   - 
   - 
   - 
