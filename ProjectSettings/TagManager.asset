@@ -8,6 +8,9 @@ TagManager:
   - Salmon
   - GameManager
   - Building
+  - Under
+  - SalmonEgg
+  - Missile
   layers:
   - Default
   - TransparentFX

@@ -24,8 +24,8 @@ public class PlayerScript : MonoBehaviour
     private GameObject childrenObjectLookTarget;
 
     //コンポーネント用変数
-    private GameObject MainGameManagerObject;
-    private MainGameManager mainGameManager;
+    [SerializeField] private GameObject gameManagerObject;
+    private GameManager gameManager;
     
 
     //値型変数
@@ -237,6 +237,9 @@ public class PlayerScript : MonoBehaviour
     //
     private void Awake()
     {
+        gameManagerObject = GameObject.FindWithTag("GameManager");
+        gameManager = gameManagerObject.GetComponent<GameManager>();
+
         rig = this.gameObject.GetComponent<Rigidbody2D>();
         chilldrenObjectPos = childrenObject.transform.localPosition;
 
@@ -252,30 +255,29 @@ public class PlayerScript : MonoBehaviour
     {
         chilldrenObjectPos = childrenObject.transform.position;
 
-        if (isAssaultMode == false && isAssaultCharged == false)
+        if (gameManager.isGameOver==false)
         {
             lookAtMouse();
             rotateChildrenObject();
-        }
-        
 
-        if (Input.GetMouseButton(0) && isAssaultMode==false)
-        {
-            PushForce();
-
-            if (debugIsShootEgg == true)
+            if (Input.GetMouseButton(0))
             {
-                GeneratePrefab();//イクラ生成
-            }
+                PushForce();
 
+                if (debugIsShootEgg == true)
+                {
+                    GeneratePrefab();//イクラ生成
+                }
+
+            }
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("EnemyBullet"))
+        if (collision.gameObject.CompareTag("Under"))
         {
-            mainGameManager.playerHP--;
+            gameManager.isGameOver = true;
         }
     }
 

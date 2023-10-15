@@ -11,7 +11,7 @@ public class Dammy : MonoBehaviour
     private Rigidbody2D _cachedRigidBody2D;
     private float objectSpeed;
 
-    private BuildingStatus BuildingStatus = new BuildingStatus(500, 5, 1);
+    private BuildingStatus BuildingStatus = new BuildingStatus(500, 20, 1);
 
     private void Awake()
     {
@@ -23,10 +23,25 @@ public class Dammy : MonoBehaviour
         BuildingStatus.speed = objectSpeed;
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        GameObject collisionGameObject = collision.gameObject;
+        if (collisionGameObject.CompareTag("SalmonEgg"))
+        {
+            BuildingStatus.hp--;
+            Destroy(collisionGameObject);
+        }
+    }
+
     private void Update()
     {
         objectSpeed = GameManager.gameSpeed;
         BuildingStatus.speed = objectSpeed;
+
+        if (BuildingStatus.hp <= 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     private void FixedUpdate()

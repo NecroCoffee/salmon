@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class Egg : MonoBehaviour
 {
-    [SerializeField] private GameObject MGM_Object;
-    [SerializeField] private MainGameManager MGM_Script;    
+    [SerializeField] private GameObject gameManagaerObject;
+    [SerializeField] private GameManager gameManager;
+
+    [SerializeField] private Transform thisTransform;
+
+    [SerializeField] private float eggLiveTimer = 5f;
+
+    private float gameSpeed;
 
     [SerializeField]
     private float force = 1f;
@@ -15,36 +21,22 @@ public class Egg : MonoBehaviour
 
     private void OnEnable()
     {
+        thisTransform = this.gameObject.transform;
+        gameManagaerObject = GameObject.FindWithTag("GameManager");
+        gameManager = gameManagaerObject.GetComponent<GameManager>();
+        gameSpeed = gameManager.gameSpeed;
         rig = this.gameObject.GetComponent<Rigidbody2D>();
         rig.AddForce(new Vector2(force, 0), ForceMode2D.Impulse);
-        Destroy(this.gameObject, 3f);
+        Destroy(this.gameObject, eggLiveTimer);
 
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        GameObject collisionGameObject = collision.gameObject;
-
-        if (collisionGameObject.gameObject.CompareTag("EnemyBullet"))
-        {
-            MGM_Script = MGM_Object.GetComponent<MainGameManager>();
-            
-            GameObject counterBullet = Instantiate(MGM_Script.currentPlayerCounterBullet) as GameObject;
-            counterBullet.transform.position = this.transform.position;
-            
-
-            Destroy(collisionGameObject);
-            Destroy(this.gameObject);
-        }
-        else
-        {
-            return;
-        }
-    }
-
+    
     
 
-    
+
+
+
 
 
 }
