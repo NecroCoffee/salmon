@@ -23,7 +23,7 @@ public class Missile : MonoBehaviour
 
     
 
-    private void Update()
+    private void FixedUpdate()
     {
         velocity = gameObject.transform.rotation * new Vector3(defaultSpeed * gameManager.gameSpeed, 0, 0);
 
