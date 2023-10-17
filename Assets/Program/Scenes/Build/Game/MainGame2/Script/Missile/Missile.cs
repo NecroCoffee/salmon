@@ -15,6 +15,12 @@ public class Missile : MonoBehaviour
     [SerializeField] private int speedUpFrame=30;
     [SerializeField] private int speedUpLimit = 3;
 
+
+    private void OnBecameInvisible()
+    {
+        Destroy(this.gameObject, 3f);
+    }
+
     private void Awake()
     {
         gameManager = (GameObject.FindWithTag("GameManager")).GetComponent<GameManager>();

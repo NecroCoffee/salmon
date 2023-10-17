@@ -279,6 +279,11 @@ public class PlayerScript : MonoBehaviour
         {
             gameManager.isGameOver = true;
         }
+
+        if (collision.gameObject.CompareTag("Missile"))
+        {
+            gameManager.isGameOver = true;
+        }
     }
 
 }

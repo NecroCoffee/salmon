@@ -7,6 +7,10 @@ using UnityEngine;
 /// </summary>
 public class MissileGenerator : MonoBehaviour
 {
+    [SerializeField] private float repeatTime = 7f;
+    [SerializeField] private float currentTime;
+    [SerializeField] private float startTimeDiff = 3f;
+
     [SerializeField] private GameManager gameManager;
 
     [SerializeField] private float missileGenerateDistance = 4f;
@@ -258,6 +262,59 @@ public class MissileGenerator : MonoBehaviour
 
     //-----------------------------------
 
+    //ミサイルランダム生成用メソッド
+    private void MissileGenerateRandom()
+    {
+        int rand = Random.Range(0, 11);
+
+        switch (rand)
+        {
+            case 0:
+                GenerateMissilePatternLeft01();
+                break;
+            case 1:
+                GenerateMissilePatternLeft02();
+                break;
+            case 2:
+                GenerateMissilePatternLeft03();
+                break;
+            case 3:
+                GenerateHomingMissilePatternLeft01();
+                break;
+            case 4:
+                GenerateHomingMissilePatternLeft02();
+                break;
+            case 5:
+                GenerateHomingMissilePatternLeft03();
+                break;
+            case 6:
+                GenerateMissilePatternUp01();
+                break;
+            case 7:
+                GenerateMissilePatternUp02();
+                break;
+            case 8:
+                GenerateMissilePatternUp03();
+                break;
+            case 9:
+                GenerateHomingMissilePatternUp01();
+                break;
+            case 10:
+                GenerateHomingMissilePatternUp02();
+                break;
+            case 11:
+                GenerateHomingMissilePatternUp03();
+                break;
+        }
+    }
+
+    //-----------------------------------
+    private void Start()
+    {
+        currentTime = 0;
+        currentTime = currentTime - startTimeDiff;
+    }
+
     private void Awake()
     {
         gameManager = (GameObject.FindWithTag("GameManager")).GetComponent<GameManager>();
@@ -274,6 +331,15 @@ public class MissileGenerator : MonoBehaviour
 
     private void Update()
     {
+        currentTime += Time.deltaTime;
+
         playerPos = playerObject.gameObject.transform.position;
+        if (currentTime >= repeatTime)
+        {
+            MissileGenerateRandom();
+
+            currentTime = 0;
+        }
+        
     }
 }

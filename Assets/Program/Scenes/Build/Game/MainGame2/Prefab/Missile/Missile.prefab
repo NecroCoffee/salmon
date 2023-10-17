@@ -211,7 +211,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
   velocity: {x: 0, y: 0, z: 0}
-  defaultSpeed: 0.75
+  defaultSpeed: 1.2
   speedCoefficient: 1.2
   currentFrame: 0
   speedUpFrame: 30

@@ -11,7 +11,7 @@ public class Dammy : MonoBehaviour
     private Rigidbody2D _cachedRigidBody2D;
     private float objectSpeed;
 
-    private BuildingStatus BuildingStatus = new BuildingStatus(500, 20, 1);
+    private BuildingStatus BuildingStatus = new BuildingStatus(500, 10, 1);
 
     private void Awake()
     {
