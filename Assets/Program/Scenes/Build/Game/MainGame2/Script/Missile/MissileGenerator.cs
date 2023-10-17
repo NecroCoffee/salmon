@@ -7,7 +7,7 @@ using UnityEngine;
 /// </summary>
 public class MissileGenerator : MonoBehaviour
 {
-    [SerializeField] private float repeatTime = 7f;
+    [SerializeField] public float repeatTime = 7f;
     [SerializeField] private float currentTime;
     [SerializeField] private float startTimeDiff = 3f;
 
@@ -265,7 +265,7 @@ public class MissileGenerator : MonoBehaviour
     //ミサイルランダム生成用メソッド
     private void MissileGenerateRandom()
     {
-        int rand = Random.Range(0, 11);
+        int rand = Random.Range(0, 16);
 
         switch (rand)
         {
@@ -305,6 +305,23 @@ public class MissileGenerator : MonoBehaviour
             case 11:
                 GenerateHomingMissilePatternUp03();
                 break;
+            case 12:
+                GenerateMissilePatternLeft01();
+                GenerateHomingMissilePatternUp02();
+                break;
+            case 13:
+                GenerateMissilePatternUp01();
+                GenerateHomingMissilePatternLeft02();
+                break;
+            case 14:
+                GenerateMissilePatternUp03();
+                GenerateMissilePatternLeft03();
+                break;
+            case 15:
+                GenerateHomingMissilePatternUp03();
+                GenerateHomingMissilePatternLeft03();
+                break;
+                
         }
     }
 
@@ -334,11 +351,17 @@ public class MissileGenerator : MonoBehaviour
         currentTime += Time.deltaTime;
 
         playerPos = playerObject.gameObject.transform.position;
-        if (currentTime >= repeatTime)
-        {
-            MissileGenerateRandom();
 
-            currentTime = 0;
+        if (gameManager.isGameOver == false)
+        {
+
+
+            if (currentTime >= repeatTime)
+            {
+                MissileGenerateRandom();
+
+                currentTime = 0;
+            }
         }
         
     }

@@ -395,10 +395,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugIsShootEgg: 1
   debugIsMove: 1
-  prefab: {fileID: 6844566584229816583}
+  moveLimitMaxX: 14
+  moveLimitMinX: -14
+  prefab: {fileID: 1980782554338804186, guid: 84b802891b0ad7f448edf068497f617e, type: 3}
   childrenObject: {fileID: 6844566584006522134}
   childrenObjectLookTarget: {fileID: 6844566583446414193}
-  pushForce: 1
+  gameManagerObject: {fileID: 0}
+  isMove: 0
+  pushForce: 3
   pushAngle: 0
   isAssaultMode: 0
   isAssaultCharged: 0

@@ -14,6 +14,7 @@ public class Missile : MonoBehaviour
     [SerializeField] private int currentFrame=0;
     [SerializeField] private int speedUpFrame=30;
     [SerializeField] private int speedUpLimit = 3;
+    [SerializeField] private float missileSpeed;
 
 
     private void OnBecameInvisible()
@@ -23,29 +24,18 @@ public class Missile : MonoBehaviour
 
     private void Awake()
     {
+        
         gameManager = (GameObject.FindWithTag("GameManager")).GetComponent<GameManager>();
-        velocity = gameObject.transform.rotation * new Vector3(defaultSpeed * gameManager.gameSpeed, 0, 0);
+        missileSpeed = gameManager.gameSpeed;
+        velocity = gameObject.transform.rotation * new Vector3(defaultSpeed * missileSpeed, 0, 0);
     }
 
     
 
     private void FixedUpdate()
     {
-        velocity = gameObject.transform.rotation * new Vector3(defaultSpeed * gameManager.gameSpeed, 0, 0);
+        velocity = gameObject.transform.rotation * new Vector3(defaultSpeed * missileSpeed, 0, 0);
 
         this.gameObject.transform.position += velocity * Time.deltaTime;
-
-        //if (currentFrame >= speedUpFrame)
-        //{
-        //    speedCoefficient = speedCoefficient * speedCoefficient;
-        //    velocity = gameObject.transform.rotation * new Vector3((defaultSpeed * (speedCoefficient) * gameManager.gameSpeed), 0, 0);
-        //    velocity = velocity * speedCoefficient;
-        //    speedUpLimit--;
-        //    currentFrame = 0;
-        //}
-        //else if (speedUpLimit >= 0) 
-        //{
-        //    currentFrame++;
-        //}
     }
 }

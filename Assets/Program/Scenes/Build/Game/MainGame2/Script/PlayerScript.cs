@@ -11,7 +11,8 @@ public class PlayerScript : MonoBehaviour
     [SerializeField]
     private bool debugIsMove = true;//XY移動可否
 
-
+    [SerializeField] private float moveLimitMaxX = 14f;
+    [SerializeField] private float moveLimitMinX = -14f;
 
     //オブジェクト用変数
 
@@ -26,10 +27,11 @@ public class PlayerScript : MonoBehaviour
     //コンポーネント用変数
     [SerializeField] private GameObject gameManagerObject;
     private GameManager gameManager;
-    
+
 
     //値型変数
 
+    [SerializeField] public bool isMove=false;
     
     private float shootEggAngle;//卵射出角度範囲
 
@@ -234,6 +236,13 @@ public class PlayerScript : MonoBehaviour
         
     }
 
+
+    private void playerMoveArea()
+    {
+        var pos = gameObject.transform.position;
+        pos.y = Mathf.Clamp(pos.y, moveLimitMinX, moveLimitMaxX);
+        this.gameObject.transform.position = pos;
+    }
     //
     private void Awake()
     {
@@ -249,16 +258,28 @@ public class PlayerScript : MonoBehaviour
         
 
     }
-   
+
+    private void OnBecameVisible()
+    {
+        isMove = true;
+    }
+
+    private void OnBecameInvisible()
+    {
+        isMove = false;
+    }
 
     private void FixedUpdate()
     {
         chilldrenObjectPos = childrenObject.transform.position;
 
-        if (gameManager.isGameOver==false)
+        
+
+        if (gameManager.isGameOver==false&&isMove==true)
         {
             lookAtMouse();
             rotateChildrenObject();
+            playerMoveArea();
 
             if (Input.GetMouseButton(0))
             {
@@ -268,6 +289,7 @@ public class PlayerScript : MonoBehaviour
                 {
                     GeneratePrefab();//イクラ生成
                 }
+                playerMoveArea();
 
             }
         }
