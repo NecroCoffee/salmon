@@ -5,16 +5,16 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] public float gameSpeed = 1f;
-    [SerializeField] public int timeScore = 0;
-    [SerializeField] public int bonusScore = 0;
+    public float gameSpeed = 1f;
+    public int timeScore = 0;
+    public int bonusScore = 0;
 
-    [SerializeField] public bool isGameOver;
+    public bool isGameOver;
 
-    [SerializeField] public float startTime;
-    [SerializeField] public float timer;
+    public float startTime;
+    public float timer;
 
-    [SerializeField] public float gameStageTimer = 0f;
+    public float gameStageTimer = 0f;
     [SerializeField] private float gameStageChangeTime = 30f;
 
     [SerializeField] private MissileGenerator missileGenerator;
@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     private void TimeCounter()
     {
 
-        timer = Time.time - startTime;
+        timer = Time.timeSinceLevelLoad - startTime;
         timeScore = (int)Math.Truncate(timer * 1000);
 
     }
@@ -64,7 +64,27 @@ public class GameManager : MonoBehaviour
     {
         Application.targetFrameRate = 60;
         isGameOver = false;
+        
+        timeScore = 0;
+        bonusScore = 0;
+        gameStageTimer = 0f;
+        gameStageChangeTime = 30f;
+        startTime = 0f;
         startTime = Time.deltaTime;
+        
+    }
+
+    private void Awake()
+    {
+        Application.targetFrameRate = 60;
+        isGameOver = false;
+        timeScore = 0;
+        bonusScore = 0;
+        gameStageTimer = 0f;
+        gameStageChangeTime = 30f;
+        startTime = 0f;
+        startTime = Time.deltaTime;
+        
     }
 
     private void Update()

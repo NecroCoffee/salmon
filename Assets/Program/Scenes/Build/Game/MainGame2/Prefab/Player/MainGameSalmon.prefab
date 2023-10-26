@@ -347,11 +347,11 @@ GameObject:
   m_Component:
   - component: {fileID: 6844566584229816586}
   - component: {fileID: 6844566584229816585}
-  - component: {fileID: 7188774482513134269}
+  - component: {fileID: 499054981560823462}
   - component: {fileID: 4755568484291500785}
   - component: {fileID: 8936690149095499178}
   m_Layer: 0
-  m_Name: Salmon
+  m_Name: MainGameSalmon
   m_TagString: Salmon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -398,7 +398,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &7188774482513134269
+--- !u!114 &499054981560823462
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -407,29 +407,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 6844566584229816583}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fcb029208e0d716419e14678f50cbcfe, type: 3}
+  m_Script: {fileID: 11500000, guid: 75aa951b848171b408ae6b6c8b66fcc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   debugIsShootEgg: 1
   debugIsMove: 1
   moveLimitMaxX: 14
   moveLimitMinX: -14
-  prefab: {fileID: 1980782554338804186, guid: 84b802891b0ad7f448edf068497f617e, type: 3}
+  prefab: {fileID: 1980782554338804186, guid: 77bfd3ce5b3f1184883676e673e63c16, type: 3}
   childrenObject: {fileID: 6844566584006522134}
   childrenObjectLookTarget: {fileID: 6844566583446414193}
-  gameManagerObject: {fileID: 0}
   isMove: 0
   pushForce: 3
   pushAngle: 0
-  isAssaultMode: 0
-  isAssaultCharged: 0
-  salmonSaveposition: {x: 0, y: 0, z: 0}
-  assaultForce: 0
-  assaultVelocity: 0
-  assaultForceMax: 10
-  assaultChargeFrameMax: 180
-  assaultForceChargeFramePer: 0
-  forceDirection: {x: 0, y: 0}
+  rig: {fileID: 0}
   angle: 0
 --- !u!212 &4755568484291500785
 SpriteRenderer:

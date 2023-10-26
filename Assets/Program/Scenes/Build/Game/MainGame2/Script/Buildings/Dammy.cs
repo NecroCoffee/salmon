@@ -5,7 +5,7 @@ using UnityEngine;
 public class Dammy : MonoBehaviour
 {
     
-    [SerializeField]private GameManager GameManager;
+    [SerializeField]private GameManager gameManager;
 
     private Transform _cachedTransForm;
     private Rigidbody2D _cachedRigidBody2D;
@@ -18,8 +18,8 @@ public class Dammy : MonoBehaviour
         _cachedTransForm = this.gameObject.transform;
         _cachedRigidBody2D = this.gameObject.GetComponent<Rigidbody2D>();
 
-        GameManager = (GameObject.FindWithTag("GameManager")).GetComponent<GameManager>();
-        objectSpeed = GameManager.gameSpeed;
+        gameManager = (GameObject.FindWithTag("GameManager")).GetComponent<GameManager>();
+        objectSpeed = gameManager.gameSpeed;
         BuildingStatus.speed = objectSpeed;
     }
 
@@ -35,11 +35,12 @@ public class Dammy : MonoBehaviour
 
     private void Update()
     {
-        objectSpeed = GameManager.gameSpeed;
+        objectSpeed = gameManager.gameSpeed;
         BuildingStatus.speed = objectSpeed;
 
         if (BuildingStatus.hp <= 0)
         {
+            gameManager.bonusScore += BuildingStatus.score;
             Destroy(this.gameObject);
         }
     }
