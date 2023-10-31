@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private MissileGenerator missileGenerator;
 
+    [SerializeField] public int missileDestroyBonus = 2000;
+
     private void TimeCounter()
     {
 

@@ -16,6 +16,8 @@ public class Missile : MonoBehaviour
     [SerializeField] private int speedUpLimit = 3;
     [SerializeField] private float missileSpeed;
 
+    [SerializeField] private float missileHP = 40;
+
 
     private void OnBecameInvisible()
     {
@@ -30,7 +32,19 @@ public class Missile : MonoBehaviour
         velocity = gameObject.transform.rotation * new Vector3(defaultSpeed * missileSpeed, 0, 0);
     }
 
-    
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("SalmonEgg"))
+        {
+            missileHP--;
+            Destroy(collision.gameObject);
+            if (missileHP<=0)
+            {
+                gameManager.bonusScore += gameManager.missileDestroyBonus;
+                Destroy(this.gameObject);
+            }
+        }
+    }
 
     private void FixedUpdate()
     {
