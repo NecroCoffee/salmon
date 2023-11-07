@@ -59,7 +59,7 @@ public class UIManager : MonoBehaviour
         if (gameManager.isGameOver == false)
         {
             timeScore = (int)gameManager.timeScore;
-            scoreText.text = timeScore.ToString("d14");
+            scoreText.text = (timeScore+gameManager.bonusScore).ToString("d14");
         }
 
         if (gameManager.isGameOver == true)

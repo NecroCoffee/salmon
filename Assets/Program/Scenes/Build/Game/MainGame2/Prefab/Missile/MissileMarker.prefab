@@ -196,7 +196,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 647674394}
   - {fileID: 5982908740812348304}
@@ -271,3 +271,4 @@ MonoBehaviour:
   missileGeneratePositionObject: {fileID: 2195458907489924436}
   missileGeneratePosition: {x: 0, y: 0, z: 0}
   countdown: 180
+  maxMarkerSize: 0.008333334

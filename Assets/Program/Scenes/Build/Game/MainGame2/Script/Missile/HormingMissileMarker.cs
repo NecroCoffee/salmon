@@ -15,7 +15,9 @@ public class HormingMissileMarker : MonoBehaviour
     //ロックオン用変数
     [SerializeField] private GameObject playerObject;
     [SerializeField] private Vector3 toDirection;
-    
+
+    [SerializeField] private float maxMarkerSize = (float)(1.5 / 60);
+
 
 
     private void Awake()
@@ -25,6 +27,11 @@ public class HormingMissileMarker : MonoBehaviour
 
     private void Update()
     {
+        if (countdown % 60 == 0)
+        {
+            this.gameObject.transform.localScale = new Vector3(1, 1, 1);
+        }
+
         if (countdown >= 60)
         {
             //rotation = playerObject.transform.position - this.gameObject.transform.position;
@@ -48,6 +55,7 @@ public class HormingMissileMarker : MonoBehaviour
         }
         else
         {
+            this.transform.localScale += new Vector3(maxMarkerSize, maxMarkerSize);
             countdown--;
         }
 

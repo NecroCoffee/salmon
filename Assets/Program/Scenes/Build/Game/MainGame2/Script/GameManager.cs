@@ -62,6 +62,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
+
+    /// <summary>
+    /// ‰Šú‰»ˆ—
+    /// </summary>
     private void Start()
     {
         Application.targetFrameRate = 60;
@@ -76,6 +80,9 @@ public class GameManager : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// ƒŠƒgƒ‰ƒCŒã‚Ì‰Šú‰»ˆ—
+    /// </summary>
     private void Awake()
     {
         Application.targetFrameRate = 60;
