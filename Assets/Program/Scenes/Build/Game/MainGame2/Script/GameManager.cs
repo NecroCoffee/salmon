@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     public float startTime;
     public float timer;
 
+    [SerializeField] public float decrementTime = 0.5f;
+
     public float gameStageTimer = 0f;
     [SerializeField] private float gameStageChangeTime = 30f;
 

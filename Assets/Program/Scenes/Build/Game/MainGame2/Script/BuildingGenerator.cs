@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class BuildingGenerator : MonoBehaviour
 {
-    [SerializeField] int currentFrame=0;
-    [SerializeField] int actionFrame=15;
+    [SerializeField] private float currentTime=0f;
+    [SerializeField] private float actionTime=0.5f;
+
+    [SerializeField] float defaultActionTime = 0.5f;
+
+    [SerializeField] float actionTimeMin = 1.5f;
 
     [SerializeField] GameManager gameManager;
 
@@ -16,17 +20,31 @@ public class BuildingGenerator : MonoBehaviour
         GameObject gameObject = Instantiate(building, this.gameObject.transform.position, Quaternion.identity) as GameObject;
     }
 
+    private void DecrementGenerateTime()
+    {
+        float time = gameManager.decrementTime;
+        time /= 10f;
+        actionTime -= time;
+        if (actionTime <=actionTimeMin)
+        {
+            actionTime = actionTimeMin;
+        }
+    }
+
     private void Awake()
     {
         gameManager = (GameObject.FindWithTag("GameManager")).GetComponent<GameManager>();
+        actionTime = defaultActionTime;
     }
+
+    
 
     private void FixedUpdate()
     {
         if (gameManager.isGameOver == false) 
         {
 
-            if (currentFrame >= actionFrame)
+            /*if (currentFrame >= actionFrame)
             {
                 currentFrame = 0;
                 BuildingGenerate(buildings[0]);
@@ -35,6 +53,17 @@ public class BuildingGenerator : MonoBehaviour
             {
                 currentFrame++;
             }
+            */
+
+            currentTime +=Time.deltaTime;
+            if (currentTime>=actionTime)
+            {
+                BuildingGenerate(buildings[0]);
+                currentTime = 0f;
+            }
+            
+
+
         }
     }
 }
