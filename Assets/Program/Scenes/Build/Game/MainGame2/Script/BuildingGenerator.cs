@@ -11,7 +11,7 @@ public class BuildingGenerator : MonoBehaviour
 
     [SerializeField] float actionTimeMin = 1.5f;
 
-    [SerializeField] GameManager gameManager;
+    [SerializeField] private GameManager gameManager;
 
     [SerializeField]private GameObject[] buildings =new GameObject[5];
 
@@ -58,7 +58,8 @@ public class BuildingGenerator : MonoBehaviour
             currentTime +=Time.deltaTime;
             if (currentTime>=actionTime)
             {
-                BuildingGenerate(buildings[0]);
+                int i = Random.Range(0, buildings.Length + 1);
+                BuildingGenerate(buildings[i]);
                 currentTime = 0f;
             }
             

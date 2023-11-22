@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 3876320125775985384}
   - component: {fileID: 2235768869359341659}
   m_Layer: 10
-  m_Name: BuildingDammy
+  m_Name: Building_Watermelon
   m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -222,4 +222,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
-  explosiveEffect: {fileID: 3776820796808826335, guid: 37d8bcbdae9b8da4e817f0963f68be56, type: 3}
+  score: 500
+  hp: 10
+  speed: 1
