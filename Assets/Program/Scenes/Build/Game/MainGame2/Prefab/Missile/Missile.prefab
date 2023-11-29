@@ -276,6 +276,9 @@ MonoBehaviour:
   speedUpFrame: 30
   speedUpLimit: 3
   missileSpeed: 0
+  spriteObject: {fileID: 6321108947000335276}
+  spriteRenderer: {fileID: 7882985484103166323}
+  missileHP: 20
 --- !u!60 &3558451056234003066
 PolygonCollider2D:
   m_ObjectHideFlags: 0

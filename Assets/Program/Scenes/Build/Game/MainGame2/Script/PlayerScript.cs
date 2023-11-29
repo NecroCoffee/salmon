@@ -169,7 +169,7 @@ public class PlayerScript : MonoBehaviour
         float pushRad = pushAngle * Mathf.Deg2Rad;
 
         Vector2 forceDirection = new Vector2((Mathf.Cos(pushRad)) * -1, (Mathf.Sin(pushRad)) * -1);
-        Debug.Log(forceDirection);
+        //Debug.Log(forceDirection);
 
         forceDirection = new Vector2(forceDirection.x * pushForce, forceDirection.y * pushForce);
 
