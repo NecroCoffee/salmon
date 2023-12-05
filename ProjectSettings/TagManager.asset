@@ -12,6 +12,7 @@ TagManager:
   - SalmonEgg
   - Missile
   - SceneChanger
+  - Gimmick
   layers:
   - Default
   - TransparentFX
@@ -25,7 +26,7 @@ TagManager:
   - Egg
   - Buildings
   - Salmon
-  - 
+  - NonInterferingGimmick
   - 
   - 
   - 
