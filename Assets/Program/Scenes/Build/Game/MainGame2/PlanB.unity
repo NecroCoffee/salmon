@@ -1124,7 +1124,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &847350153
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1893,7 +1893,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1129667204
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2742,7 +2742,7 @@ MonoBehaviour:
   waterMelon: {fileID: 7304691802357998941, guid: 5fa38037abd35c449897c80677c6ffab, type: 3}
   spawner: {fileID: 1822540727}
   spawnerMoveRangeY: 5
-  generateInterval: 25
+  defaultGenerateInterval: 25
 --- !u!1 &1826810637
 GameObject:
   m_ObjectHideFlags: 0

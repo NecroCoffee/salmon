@@ -58,7 +58,7 @@ public class BuildingGenerator : MonoBehaviour
             currentTime +=Time.deltaTime;
             if (currentTime>=actionTime)
             {
-                int i = Random.Range(0, buildings.Length + 1);
+                int i = Random.Range(0, buildings.Length);
                 BuildingGenerate(buildings[i]);
                 currentTime = 0f;
             }

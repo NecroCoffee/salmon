@@ -64,22 +64,29 @@ public class GameManager : MonoBehaviour
         }
     }
 
-
-    /// <summary>
-    /// ‰Šú‰»ˆ—
-    /// </summary>
-    private void Start()
+    //Scene“Ç‚İ‚İ‰Šú‰»ˆ—
+    private void InitializeVariables()
     {
-        Application.targetFrameRate = 60;
+        if (Application.targetFrameRate != 60)
+        {
+            Application.targetFrameRate = 60;
+        }
         isGameOver = false;
-        
         timeScore = 0;
         bonusScore = 0;
         gameStageTimer = 0f;
         gameStageChangeTime = 30f;
         startTime = 0f;
         startTime = Time.deltaTime;
-        
+    }
+
+    /// <summary>
+    /// ‰Šú‰»ˆ—
+    /// </summary>
+    private void Start()
+    {
+
+        InitializeVariables();
     }
 
     /// <summary>
@@ -87,15 +94,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     private void Awake()
     {
-        Application.targetFrameRate = 60;
-        isGameOver = false;
-        timeScore = 0;
-        bonusScore = 0;
-        gameStageTimer = 0f;
-        gameStageChangeTime = 30f;
-        startTime = 0f;
-        startTime = Time.deltaTime;
-        
+        InitializeVariables();
     }
 
     private void Update()

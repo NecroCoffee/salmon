@@ -29,11 +29,16 @@ public class WatermelonSpawner : MonoBehaviour
     //スポナー座標保存用
     private Vector2 spawnerPos;
 
-    //時間関係
+    //時間関係------------------
 
     //プレハブ生成間隔
     [SerializeField]
-    private float generateInterval = 25f;
+    private float defaultGenerateInterval = 25f;
+
+    //プレハブ生成間隔にデフォルトの値を入れる用
+    private float generateInterval;
+
+    
 
     //シーン開始時間
     private float sceneStartTime;
@@ -48,12 +53,22 @@ public class WatermelonSpawner : MonoBehaviour
     private void InitializeVariable()
     {
         gameManager = gameManagerObj.GetComponent<GameManager>();
+
+        generateInterval = defaultGenerateInterval;
+        sceneStartTime = Time.timeSinceLevelLoad;
+        time = 0f;
+    }
+
+    //生成時間計測
+    private void TimeCounter()
+    {
+        time += Time.deltaTime;
     }
 
     //プレハブ生成andプレハブ初期設定
     private void GenerateWaterMelon(GameObject gameObject)
     {
-        //魔法の呪文
+        //魔法の呪文　嘘(本当は生成したプレハブを制御するため)
         GameObject m_gameObject = Instantiate(gameObject, spawner.gameObject.transform.position, Quaternion.identity) as GameObject;
         Rigidbody2D m_rig2d = m_gameObject.GetComponent<Rigidbody2D>();
         //左側に飛ばすためにxの引数に-1をかける
@@ -75,5 +90,9 @@ public class WatermelonSpawner : MonoBehaviour
     private void Update()
     {
         MoveSpawner(spawner, spawnerMoveRangeY);
+        if (time >= generateInterval)
+        {
+            GenerateWaterMelon(waterMelon);
+        }
     }
 }
