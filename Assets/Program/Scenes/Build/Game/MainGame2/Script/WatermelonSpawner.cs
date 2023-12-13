@@ -24,6 +24,7 @@ public class WatermelonSpawner : MonoBehaviour
     private float spawnerMoveRangeY = 2.5f;
 
     //生成後プレハブ移動力
+    [SerializeField]
     private float waterMelonPushFroce = 1.0f;
 
     //スポナー座標保存用
@@ -40,14 +41,16 @@ public class WatermelonSpawner : MonoBehaviour
 
     //経過時間
     private float time;
-
     //--------------------------
 
 
     //変数初期化
     private void InitializeVariable()
     {
-        gameManager = gameManagerObj.GetComponent<GameManager>();
+        //gameManager = gameManagerObj.GetComponent<GameManager>();
+        time = 0.0f;
+        sceneStartTime = Time.timeSinceLevelLoad;
+        
     }
 
     //プレハブ生成andプレハブ初期設定
@@ -66,14 +69,30 @@ public class WatermelonSpawner : MonoBehaviour
         gameObject.gameObject.transform.position = new Vector2(spawnerPos.x, spawnerPos.y + Mathf.PingPong(Time.time, range));
     }
 
+    private void TimeCount()
+    {
+        time += Time.deltaTime;
+    }
+
+
     //---------------
     private void Awake()
     {
+        InitializeVariable();
+
+
         spawnerPos = spawner.transform.position;
     }
 
     private void Update()
     {
+        TimeCount();
         MoveSpawner(spawner, spawnerMoveRangeY);
+        if(time>=generateInterval)
+        {
+            time = 0.0f;
+            GenerateWaterMelon(waterMelon);
+            
+        }
     }
 }
